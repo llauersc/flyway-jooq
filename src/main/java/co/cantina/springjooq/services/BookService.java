@@ -5,21 +5,19 @@ import java.util.stream.Collectors;
 
 import org.jooq.DSLContext;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.cantina.spring.jooq.sample.model.Tables;
 
 import co.cantina.springjooq.domain.Book;
+import lombok.AllArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class BookService {
 
-	@Autowired
-	private ModelMapper mapper;
-			
-	@Autowired
-	DSLContext dsl;
+	private final ModelMapper mapper;
+	private final DSLContext dsl;
 
 	public List<Book> getBooks() {
 		return dsl
